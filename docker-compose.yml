@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./www:/usr/share/nginx/html:ro
+
+  content_bot:
+    build: .
+    container_name: ai_content_gen
+    command: python3 ai_content_gen.py
